@@ -1,5 +1,7 @@
 #pragma once
 #include <windows.h>
+#include "ProcessRunData.h"
+
 namespace Logon
 {
 	enum class LogonFlags :DWORD 
@@ -26,6 +28,16 @@ namespace Logon
 		~LogonTools();
 		BOOL LogIn(LPCWSTR username, LPCWSTR password, LPCWSTR domain);
 		BOOL isUserInAdminGroup();
+		BOOL IsRunAsAdmin();
+		BOOL IsProcessElevated();
+		DWORD GetProcessIntegrityLevel();
+		void ReportError(LPCWSTR pszFunction, DWORD dwError = GetLastError());
+		BOOL CreateEnviroment();
+		BOOL DestroyEnviroment();
+		BOOL GetUserProfileDir();
+		BOOL CreateProcessWithUser(ProcessRunData *data);
+		BOOL RunProcessAsUser(ProcessRunData *data);
+		VOID MsgBx(LPCWSTR str);
 	private:
 		LPVOID lpEnv;
 		HANDLE hToken;

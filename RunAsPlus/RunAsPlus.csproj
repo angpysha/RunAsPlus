@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -95,7 +96,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdditionLib\AdditionLib.vcxproj">
+      <Project>{347d8102-b4ed-4bc0-b321-9ab3c795e4df}</Project>
+      <Name>AdditionLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RunAsPlusLib\RunAsPlusLib.csproj">
+      <Project>{b27cd307-c894-469b-b9ce-a783ef73fe4e}</Project>
+      <Name>RunAsPlusLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /b "$(SolutionDir)$(ConfigurationName)\AdditionLib.dll" "$(TargetDir)"
+copy /b "$(SolutionDir)$(ConfigurationName)\MainLib.dll" "$(TargetDir)"
+copy /b "$(SolutionDir)$(ConfigurationName)\MainLIb.pdb" "$(TargetDir)"
+copy /b "$(SolutionDir)$(ConfigurationName)\AdditionLib.pdb" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

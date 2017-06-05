@@ -8,5 +8,11 @@ namespace RunAsPlusLib
 {
     public class Class1
     {
+       /* (int,int) GetMax(int[] fasdf)
+        {
+            return (0, 0);
+        }*/
+
+        
     }
 }
