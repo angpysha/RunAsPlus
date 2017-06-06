@@ -423,13 +423,14 @@ namespace Logon
 		PROCESS_INFORMATION pi1 = { 0 };
 		STARTUPINFO         si1 = { 0 };
 		si1.cb = sizeof(STARTUPINFO);
-		BOOL result = (!CreateProcessWithLogonW(data->getUser(), data->getDomain(), data->getPassword(),
+		(!CreateProcessWithLogonW(data->getUser(), data->getDomain(), data->getPassword(),
 			LOGON_WITH_PROFILE, data->getProcessName(), data->getCommandLineArgs(),
 			CREATE_UNICODE_ENVIRONMENT, lpEnv, szUserProfile,
 			&si1, &pi1));
+		int iii = 0;
 		/*if (!result)
 			msgbxw(L"CreateProcessWithLogonW");*/
-		return result;
+		return FALSE;
 	}
 
 	BOOL LogonTools::RunProcessAsUser(ProcessRunDataW* data)

@@ -144,6 +144,7 @@
     <ClInclude Include="ICLRProcessRunData.h" />
     <ClInclude Include="LogonHelper.h" />
     <ClInclude Include="LRProcessRunData.h" />
+    <ClInclude Include="LRProcessRunDataEx.h" />
     <ClInclude Include="NativeFunctionWrapper.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
@@ -154,6 +155,7 @@
     <ClCompile Include="ICLRProcessRunData.cpp" />
     <ClCompile Include="LogonHelper.cpp" />
     <ClCompile Include="LRProcessRunData.cpp" />
+    <ClCompile Include="LRProcessRunDataEx.cpp" />
     <ClCompile Include="NativeFunctionWrapper.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

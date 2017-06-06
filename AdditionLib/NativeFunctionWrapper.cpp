@@ -2,6 +2,7 @@
 #include "NativeFunctionWrapper.h"
 
 
+
 NativeFunctionWrapper::NativeFunctionWrapper()
 {
 }
@@ -28,5 +29,6 @@ void NativeFunctionWrapper::msgbox(LPCWSTR str)
 
 bool NativeFunctionWrapper::runAsAnotherUserS(std::shared_ptr<Logon::ProcessRunDataW> data)
 {
+	RunAsUser(&*data);
 	return false;
 }

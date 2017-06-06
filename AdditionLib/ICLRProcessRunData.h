@@ -1,8 +1,8 @@
 #pragma once
 namespace AdditionLib
 {
-	generic <typename T>
-		ref class ICLRProcessRunData
+	generic <class T>
+		public ref class ICLRProcessRunData abstract
 		{
 		public:
 			ICLRProcessRunData();
