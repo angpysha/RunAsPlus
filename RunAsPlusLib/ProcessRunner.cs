@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logon;
+using MLogon;
 
 namespace RunAsPlusLib
 {
@@ -21,9 +22,9 @@ namespace RunAsPlusLib
 
         public bool RunAsUser(Dictionary<MPData, string> data)
         {
-            LogonHelper helper = new Logon.LogonHelper();
+           // LogonHelper helper = new Logon.LogonHelper();
            // helper.runAsAnotherUser(data);
-            return helper.runAsAnotherUser(data);
+          //  return helper.runAsAnotherUser(data);
             return false;
         }
 

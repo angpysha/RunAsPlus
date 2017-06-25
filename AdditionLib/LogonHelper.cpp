@@ -5,7 +5,7 @@
 #pragma unmanaged
 #include "NativeFunctionWrapper.h"
 #pragma managed
-namespace Logon
+namespace MLogon
 {
 	LogonHelper::LogonHelper()
 	{

@@ -13,27 +13,53 @@ namespace AdditionLib
 	}
 	void CLRProcessRunDataEx::setProcessName(StringBuilder ^ name)
 	{
-		throw gcnew System::NotImplementedException();
+		this->processName = System::String::IsNullOrWhiteSpace(name->ToString()) ? nullptr : name;
 	}
 	void CLRProcessRunDataEx::setUser(StringBuilder ^ user)
 	{
-		
-		throw gcnew System::NotImplementedException();
+		this->user = System::String::IsNullOrWhiteSpace(user->ToString()) ? nullptr : user;
 	}
 	void CLRProcessRunDataEx::setCommandLineArgs(StringBuilder ^ args)
 	{
-		throw gcnew System::NotImplementedException();
+		this->commandLineArgs = System::String::IsNullOrWhiteSpace(args->ToString()) ? nullptr : args;
+		
 	}
 	void CLRProcessRunDataEx::setDomain(StringBuilder ^ domain)
 	{
-		throw gcnew System::NotImplementedException();
+		this->domain = System::String::IsNullOrWhiteSpace(domain->ToString()) ? nullptr : domain;
 	}
 	void CLRProcessRunDataEx::setPassword(StringBuilder ^ pass)
 	{
-		throw gcnew System::NotImplementedException();
+		this->password = System::String::IsNullOrWhiteSpace(pass->ToString()) ? nullptr : pass;
+
 	}
 	void CLRProcessRunDataEx::setType(StringBuilder ^ type)
 	{
-		throw gcnew System::NotImplementedException();
+		this->type = System::String::IsNullOrWhiteSpace(type->ToString()) ? nullptr : type;
+	}
+	StringBuilder ^ CLRProcessRunDataEx::getProcessName()
+	{
+		return System::String::IsNullOrWhiteSpace(this->processName->ToString()) ? nullptr : this->processName;
+	}
+	StringBuilder ^ CLRProcessRunDataEx::getUser()
+	{
+		return System::String::IsNullOrWhiteSpace(this->user->ToString()) ? nullptr : this->user;
+	}
+	StringBuilder ^ CLRProcessRunDataEx::getCommandLineArgs()
+	{
+		return System::String::IsNullOrWhiteSpace(this->commandLineArgs->ToString()) ? nullptr : this->commandLineArgs;
+	}
+	StringBuilder ^ CLRProcessRunDataEx::getDomain()
+	{
+		return System::String::IsNullOrWhiteSpace(this->domain->ToString()) ? nullptr : this->domain;
+	}
+	StringBuilder ^ CLRProcessRunDataEx::getPassword()
+	{
+		return System::String::IsNullOrWhiteSpace(this->password->ToString()) ? nullptr : this->password;
+
+	}
+	StringBuilder ^ CLRProcessRunDataEx::getType()
+	{
+		return System::String::IsNullOrWhiteSpace(this->type->ToString()) ? nullptr : this->type;
 	}
 }

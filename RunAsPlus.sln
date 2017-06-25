@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunAsPlus", "RunAsPlus\RunAsPlus.csproj", "{3A85BE50-162B-460E-BDCB-9152E95ACB28}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -23,8 +23,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdditionLib", "AdditionLib\
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunTest", "RunTest\RunTest.csproj", "{475D90FA-4CE0-44F0-B8B9-406C70F56EF9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC46EF96-CE4A-4489-85BE-DA2E71811939} = {FC46EF96-CE4A-4489-85BE-DA2E71811939}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPTestingNative", "CPPTestingNative\CPPTestingNative.vcxproj", "{8D21CEDA-E002-434B-AEC1-AD8E9B1973D0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC46EF96-CE4A-4489-85BE-DA2E71811939} = {FC46EF96-CE4A-4489-85BE-DA2E71811939}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

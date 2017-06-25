@@ -3,7 +3,7 @@ using namespace System;
 using namespace System::Collections::Generic;
 
 #pragma managed
-namespace Logon
+namespace MLogon
 {
 	public enum class MPData : int
 	{
@@ -13,6 +13,12 @@ namespace Logon
 		user = 3,
 		domain = 4,
 		type = 5
+	};
+
+	public enum class MPType : int 
+	{
+		User = 0,
+		Token =1
 	};
 	public ref class LogonHelper
 	{

@@ -19,6 +19,12 @@ namespace AdditionLib
 		void setDomain(StringBuilder^ domain) override;
 		void setPassword(StringBuilder^ pass) override;
 		void setType(StringBuilder^ type) override;
+		StringBuilder^ getProcessName() override;
+		StringBuilder^ getUser() override;
+		StringBuilder^ getCommandLineArgs() override;
+		StringBuilder^ getDomain() override;
+		StringBuilder^ getPassword() override;
+		StringBuilder^ getType() override;
 	};
 }
 
