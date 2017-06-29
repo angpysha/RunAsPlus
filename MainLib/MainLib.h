@@ -31,3 +31,5 @@ externC NATIVEFUNC void Cdecl MsgBx(LPCWSTR);
 NATIVEFUNC void RunAsUser(Logon::ProcessRunDataW *data);
 #endif
 
+externC NATIVEFUNC HANDLE Cdecl GetProcessHandleByName(LPWSTR name);
+

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "MainLib.h"
+//#include <HelpTools.h>
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 #define DisplayError(a) MessageBox(NULL,a,a,NULL);
 namespace CPPTestingNative
@@ -94,6 +95,18 @@ namespace CPPTestingNative
 			CloseHandle(pi.hProcess);
 			CloseHandle(pi.hThread);
 
+		}
+
+		TEST_METHOD(CheckGetProcessHandleByName)
+		{
+			LPWSTR name = L"notepad.exe";
+
+			HANDLE df = GetProcessHandleByName(name);
+			DWORD id = GetProcessId(df);
+			CloseHandle(df);
+			WCHAR ll[10];
+			swprintf_s(ll, 10, L"%d", id);
+			msgbxw(ll);
 		}
 
 	};

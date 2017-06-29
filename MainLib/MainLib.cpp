@@ -5,12 +5,13 @@
 #include "MainLib.h"
 #include "ProcessRunData.h"
 #include "LogonTools.h"
+#include "HelpTools.h"
 
 externC NATIVEFUNC bool Cdecl LogInAsUser(MyMap mymap)
 {
 	try
 	{
-		std::shared_ptr<Logon::ProcessRunData> data{};
+		std::shared_ptr<Logon::ProcessRunData> data = std::make_shared<Logon::ProcessRunData>();
 		data->setUser(const_cast<LPWSTR>(mymap.left.find(PData::user)->second.c_str()));
 		//std::wstring ff = 
 		data->setDomain(const_cast<LPWSTR>(mymap.left.find(PData::domain)->second.c_str()));
@@ -53,3 +54,8 @@ NATIVEFUNC void RunAsUser(Logon::ProcessRunDataW *data)
 	logon_tools->RunProcessAsUser(std::move(data));
 }
 #endif
+
+externC NATIVEFUNC HANDLE Cdecl GetProcessHandleByName(LPWSTR name)
+{
+	return HelpTools::GetProcessHandleByName(name);
+}

@@ -16,5 +16,6 @@ public:
 	}
 
 	 virtual BOOL isStringNullOrWhiteSpace(T)=0;
+	 virtual HANDLE GetProcessHandleByName(T) = 0;
 };
 

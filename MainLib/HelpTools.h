@@ -14,5 +14,6 @@ public:
 	static BOOL isStringNullOrWhitespace(LPCSTR);
 	static BOOL isStringNullOrWhitespace(LPCWSTR);
 	static std::string serialize(MyMap map);
+	static HANDLE GetProcessHandleByName(LPWSTR);
 };
 

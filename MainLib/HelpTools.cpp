@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "HelpTools.h"
+#include <windows.h>
+#include <tlhelp32.h>
 #include <boost/foreach.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
@@ -81,6 +83,27 @@ std::string HelpTools::serialize(MyMap map)
 	//boost::archive::text_oarchive oar(ss);
 
 	return std::string();
+}
+
+HANDLE HelpTools::GetProcessHandleByName(LPWSTR name)
+{
+	PROCESSENTRY32 entry;
+	entry.dwSize = sizeof(PROCESSENTRY32);
+	HANDLE proc = NULL;
+	HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+	
+	if (Process32First(snapshot, &entry))
+	{
+		while (Process32Next(snapshot,&entry))
+		{
+			if (wcscmp(entry.szExeFile, name)==0)
+			{
+				proc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
+			}
+		}
+	}
+
+	return proc;
 }
 
 
