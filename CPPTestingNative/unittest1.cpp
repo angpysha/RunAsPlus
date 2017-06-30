@@ -66,7 +66,7 @@ namespace CPPTestingNative
 			//
 			// TO DO: change NULL to '.' to use local account database
 			//
-			if (!LogonUser(L"aaa", NULL,L"1111", LOGON32_LOGON_INTERACTIVE,
+			if (!LogonUser(L"user2", NULL,L"1111", LOGON32_LOGON_INTERACTIVE,
 				LOGON32_PROVIDER_DEFAULT, &hToken))
 				DisplayError(L"LogonUser");
 
@@ -82,7 +82,7 @@ namespace CPPTestingNative
 			// TO DO: change NULL to '.' to use local account database
 			//
 			int iii = 0;
-			if (!CreateProcessWithLogonW(L"aaa", L".", L"1111",
+			if (!CreateProcessWithLogonW(L"user2", L".", L"1111",
 				LOGON_WITH_PROFILE, L"cmd.exe", NULL,
 				CREATE_UNICODE_ENVIRONMENT, lpvEnv, szUserProfile,
 				&si, &pi))

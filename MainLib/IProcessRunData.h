@@ -21,6 +21,8 @@ public:
 	virtual T getPassword() = 0;
 	virtual T getUser() = 0;
 	virtual T getDomain() = 0;
+	virtual void setToken(HANDLE hToken) = 0;
+	virtual HANDLE getToken() = 0;
 	virtual RunType getRunType() = 0;
 protected:
 	T processName = nullptr;
@@ -29,5 +31,6 @@ protected:
 	T user = nullptr;
 	T domain = nullptr;
 	RunType run_type;
+	HANDLE hToken;
 };
 

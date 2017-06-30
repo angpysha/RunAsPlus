@@ -32,6 +32,8 @@ namespace Logon
 		wchar_t* getPassword() override;
 		wchar_t* getUser() override;
 		wchar_t* getDomain() override;
+		HANDLE getToken() override;
+		void setToken(HANDLE hToken) override;
 		RunType getRunType() override;
 	};
 #pragma endregion

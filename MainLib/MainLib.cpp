@@ -81,3 +81,13 @@ externC NATIVEFUNC HANDLE Cdecl GetProcessHandleByName(LPWSTR name)
 {
 	return HelpTools::GetProcessHandleByName(name);
 }
+
+externC NATIVEFUNC HANDLE Cdecl GetProcessToken(HANDLE process)
+{
+	return HelpTools::getProcessToken(process);
+}
+
+externC NATIVEFUNC HANDLE Cdecl DuplicateProcessToken(HANDLE hToken)
+{
+	return HelpTools::duplicateProcessToken(hToken);
+}

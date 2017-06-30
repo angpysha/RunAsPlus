@@ -190,6 +190,25 @@ std::string HelpTools::decompressEx(std::string &str)
 	return std::string();
 }
 
+HANDLE HelpTools::getProcessToken(HANDLE process)
+{
+	HANDLE hToken;
+	if (!OpenProcessToken(process, TOKEN_DUPLICATE, &hToken))
+		return NULL;
+	return hToken;
+}
+
+HANDLE HelpTools::duplicateProcessToken(HANDLE hToken)
+{
+	HANDLE hDuplicateToken;
+	if (!DuplicateTokenEx(hToken, TOKEN_ASSIGN_PRIMARY | TOKEN_DUPLICATE |
+		TOKEN_QUERY | TOKEN_ADJUST_DEFAULT | TOKEN_ADJUST_SESSIONID, NULL,
+		SecurityImpersonation, TokenPrimary, &hDuplicateToken))
+		return NULL;
+	return hDuplicateToken;
+
+}
+
 
 
 

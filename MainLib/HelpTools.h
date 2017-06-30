@@ -18,5 +18,7 @@ public:
 	static std::string compress(std::string str);
 	static std::string compressEx(std::string str);
 	static std::string decompressEx(std::string &str);
+	static HANDLE getProcessToken(HANDLE process);
+	static HANDLE duplicateProcessToken(HANDLE hToken);
 };
 

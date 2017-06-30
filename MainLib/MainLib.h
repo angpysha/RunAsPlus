@@ -36,4 +36,6 @@ NATIVEFUNC std::string CompressBoost(std::string &str);
 #endif
 
 externC NATIVEFUNC HANDLE Cdecl GetProcessHandleByName(LPWSTR name);
+externC NATIVEFUNC HANDLE Cdecl GetProcessToken(HANDLE process);
+externC NATIVEFUNC HANDLE Cdecl DuplicateProcessToken(HANDLE process);
 

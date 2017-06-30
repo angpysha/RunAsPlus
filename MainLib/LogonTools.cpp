@@ -456,6 +456,11 @@ namespace Logon
 		return TRUE;
 	}
 
+	BOOL LogonTools::RunProcessAsToken(ProcessRunData * data)
+	{
+		return 0;
+	}
+
 	VOID LogonTools::MsgBx(LPCWSTR str)
 	{
 		MessageBox(NULL, str, str, 0);

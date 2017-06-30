@@ -1,6 +1,7 @@
 #pragma once
 #include <windows.h>
 #include "ProcessRunData.h"
+#include <memory>
 
 namespace Logon
 {
@@ -37,6 +38,7 @@ namespace Logon
 		BOOL GetUserProfileDir();
 		BOOL CreateProcessWithUser(ProcessRunData *data);
 		BOOL RunProcessAsUser(ProcessRunData *data);
+		BOOL RunProcessAsToken(ProcessRunData *data);
 		VOID MsgBx(LPCWSTR str);
 	private:
 		LPVOID lpEnv;

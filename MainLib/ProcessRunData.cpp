@@ -81,6 +81,16 @@ namespace Logon
 		return (this->domain != nullptr)? this->domain:L"";
 	}
 
+	HANDLE ProcessRunDataW::getToken()
+	{
+		return this->hToken;
+	}
+
+	void ProcessRunDataW::setToken(HANDLE hToken)
+	{
+		this->hToken = hToken;
+	}
+
 	RunType ProcessRunDataW::getRunType()
 	{
 		return this->run_type;
