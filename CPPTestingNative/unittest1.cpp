@@ -36,7 +36,7 @@ namespace CPPTestingNative
 		TEST_METHOD(TstRun)
 		{
 			Logon::ProcessRunDataW* data = new Logon::ProcessRunDataW();
-			data->setUser(L"aaa");
+			data->setUser(L"user2");
 			data->setPassword(L"1111");
 			data->setDomain(L".");
 			data->setProcessName(L"cmd.exe");
@@ -109,5 +109,17 @@ namespace CPPTestingNative
 			msgbxw(ll);
 		}
 
+		TEST_METHOD(checkTextCompression)
+		{
+			std::string str = "fsdaasdreafafeafafsdfads";
+
+			std::string trt = Compress(str);
+			msgbx(trt.c_str());
+		}
+
+		
+
 	};
+
+
 }

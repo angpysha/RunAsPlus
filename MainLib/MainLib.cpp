@@ -6,6 +6,7 @@
 #include "ProcessRunData.h"
 #include "LogonTools.h"
 #include "HelpTools.h"
+#include <base64.h>
 
 externC NATIVEFUNC bool Cdecl LogInAsUser(MyMap mymap)
 {
@@ -52,6 +53,27 @@ NATIVEFUNC void RunAsUser(Logon::ProcessRunDataW *data)
 	Logon::LogonTools *logon_tools = new Logon::LogonTools();
 	//msgbxw(data->getProcessName());
 	logon_tools->RunProcessAsUser(std::move(data));
+}
+NATIVEFUNC std::string Compress(std::string str)
+{
+	return HelpTools::compress(str);
+	return std::string();
+}
+NATIVEFUNC std::string CompressBoost(std::string & str)
+{
+	// std::stringstream compressed();
+	//std::stringstream original;
+	return HelpTools::compressEx(str);
+	return std::string();
+}
+NATIVEFUNC std::string ToBase64(unsigned char const *str, unsigned int len)
+{
+	return base64_encode(str, len);
+
+}
+NATIVEFUNC std::string FromBase64(std::string const & s)
+{
+	return base64_decode(s);
 }
 #endif
 
