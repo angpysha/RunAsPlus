@@ -33,6 +33,10 @@ NATIVEFUNC std::string Compress(std::string str);
 NATIVEFUNC std::string ToBase64(unsigned char const*, unsigned int len);
 NATIVEFUNC std::string FromBase64(std::string const& s);
 NATIVEFUNC std::string CompressBoost(std::string &str);
+/*
+		
+ */
+NATIVEFUNC VOID RunWithToken(std::string &path, std::string &appToken);
 #endif
 
 externC NATIVEFUNC HANDLE Cdecl GetProcessHandleByName(LPWSTR name);

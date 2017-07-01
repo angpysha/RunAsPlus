@@ -22,5 +22,14 @@ namespace CPPTestingNative
 			std::string comptext = CompressBoost(text);
 			msgbx(comptext.c_str());
 		}
+
+		TEST_METHOD(runWithToken)
+		{
+			std::string fasdf = "notepad.exe";
+			std::string dasf = "cmd.exe";
+			RunWithToken(dasf, fasdf);
+
+
+		}
 	};
 }

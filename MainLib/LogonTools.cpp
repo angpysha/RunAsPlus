@@ -458,6 +458,19 @@ namespace Logon
 
 	BOOL LogonTools::RunProcessAsToken(ProcessRunData * data)
 	{
+		LPWSTR szCommandLine = L"C:\\Windows\\system32\\cmd.exe";
+		//_tcscpy_s(szCommandLine, MAX_PATH, _T("C:\\Windows\\system32\\notepad.exe"));
+		///swprintf_s(szCommandLine, MAX_PATH, L"C:\\Windows\\system32\\notepad.exe");
+		STARTUPINFO StartupInfo;
+		ZeroMemory(&StartupInfo, sizeof(STARTUPINFO));
+		StartupInfo.cb = sizeof(STARTUPINFO);
+		PROCESS_INFORMATION ProcessInformation;
+		ZeroMemory(&ProcessInformation, sizeof(PROCESS_INFORMATION));
+		if (CreateProcessWithTokenW(data->getToken(), LOGON_WITH_PROFILE, NULL,
+			szCommandLine, 0, NULL, NULL, &StartupInfo, &ProcessInformation))
+		{
+			WaitForSingleObject(ProcessInformation.hProcess, INFINITE);
+		}
 		return 0;
 	}
 

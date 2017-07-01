@@ -77,6 +77,19 @@ NATIVEFUNC std::string FromBase64(std::string const & s)
 }
 #endif
 
+NATIVEFUNC VOID RunWithToken(std::string & path, std::string & appToken)
+{
+	std::wstring ss(appToken.begin(),appToken.end());
+	HANDLE hProcess = HelpTools::GetProcessHandleByName(const_cast<LPWSTR>(ss.c_str()));
+	HANDLE hToken = HelpTools::getProcessToken(hProcess);
+	HANDLE hDupToken = HelpTools::duplicateProcessToken(hToken);
+	Logon::ProcessRunDataW *data = new Logon::ProcessRunDataW();
+	data->setToken(hDupToken);
+	//TODO: Do app path and normal cast to unicode
+	Logon::LogonTools *tools = new Logon::LogonTools();
+	tools->RunProcessAsToken(data);
+}
+
 externC NATIVEFUNC HANDLE Cdecl GetProcessHandleByName(LPWSTR name)
 {
 	return HelpTools::GetProcessHandleByName(name);
