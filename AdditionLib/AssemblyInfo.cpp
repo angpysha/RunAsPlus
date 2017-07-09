@@ -12,7 +12,7 @@ using namespace System::Security::Permissions;
 // associated with an assembly.
 //
 [assembly:AssemblyTitleAttribute(L"AdditionLib")];
-[assembly:AssemblyDescriptionAttribute(L"")];
+[assembly:AssemblyDescriptionAttribute(L"This library connects .Net API and Win32")];
 [assembly:AssemblyConfigurationAttribute(L"")];
 [assembly:AssemblyCompanyAttribute(L"")];
 [assembly:AssemblyProductAttribute(L"AdditionLib")];

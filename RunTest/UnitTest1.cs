@@ -1,4 +1,5 @@
 ﻿using System;
+using AdditionLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RunTest
@@ -37,6 +38,20 @@ namespace RunTest
             string z;
             fds.tstMsgg(ff, out z);
             RunAsPlusLib.ProcessRunner.MessageBoxX(z);
+        }
+
+        [TestMethod]
+        public void RunAsUserNetSharedPtr()
+        {
+            AdditionLib.CLRProcessRunData data = new CLRProcessRunData();
+            data.setUser("user2");
+            data.setPassword("1111");
+            data.setDomain(".");
+            data.setProcessName("cmd.exe");
+            //data->setCommandLineArgs(L"");
+            MLogon.LogonHelper helper = new MLogon.LogonHelper();
+            helper.runAsAnotherUser(data);
+
         }
     }
 }

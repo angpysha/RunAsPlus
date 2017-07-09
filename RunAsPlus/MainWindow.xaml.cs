@@ -35,7 +35,7 @@ namespace RunAsPlus
             string prog = textBox_Copy2.Text;
             string args = textBox_Copy3.Text;
 
-            Dictionary<Logon.MPData, string> data = new Dictionary<MPData, string>
+            /*Dictionary<Logon.MPData, string> data = new Dictionary<MPData, string>
             {
                 {MPData.user, user},
                 {MPData.password,pass},
@@ -46,7 +46,7 @@ namespace RunAsPlus
             };
 
             RunAsPlusLib.ProcessRunner runner = new ProcessRunner();
-            runner.RunAsUser(data);
+            runner.RunAsUser(data);*/
         }
     }
 }

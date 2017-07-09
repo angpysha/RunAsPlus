@@ -44,11 +44,13 @@ namespace AdditionLib
 		uData->setUser(const_cast<LPWSTR>(lwcUser));
 		uData->setDomain(const_cast<LPWSTR>(lwcDomain));
 		uData->setPassword(const_cast<LPWSTR>(lwcPassword));
+		if (this->type != nullptr)
 		uData->setCommandLineArgs(const_cast<LPWSTR>(lwcArgs));
 
 		 //MLogon::MPType tmp = static_cast<MLogon::MPType>(std::stoi(lwcType));
-		RunType tmp = static_cast<RunType>(std::stoi(lwcType));
-		uData->setRunType(tmp);
+	//	if (this->type != nullptr)
+	//	RunType tmp = static_cast<RunType>(std::stoi(lwcType));
+		//uData->setRunType(tmp);
 		return uData;
 		//return std::shared_ptr<Logon::ProcessRunData>();
 	}

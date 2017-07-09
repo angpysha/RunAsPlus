@@ -4,6 +4,7 @@
 #include "MainLib.h"
 #pragma unmanaged
 #include "NativeFunctionWrapper.h"
+#include <ProcessRunData.h>
 #pragma managed
 namespace MLogon
 {
@@ -31,6 +32,14 @@ namespace MLogon
 		//NativeFunctionWrapper* wrapper = new NativeFunctionWrapper();
 		return NativeFunctionWrapper::runAsAnotherUserS(map);
 	//	return false;
+	}
+
+	System::Boolean LogonHelper::runAsAnotherUser(AdditionLib::CLRProcessRunData ^data)
+	{
+		std::shared_ptr<Logon::ProcessRunData> udata = std::make_shared<Logon::ProcessRunData>();
+		udata = data->toUnmanaged();
+		RunAsUserEx(udata);
+		return false;
 	}
 
 	void LogonHelper::MsgBx(System::String ^str)

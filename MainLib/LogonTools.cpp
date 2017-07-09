@@ -416,6 +416,21 @@ namespace Logon
 		return result;
 	}
 
+	BOOL LogonTools::CreateProcessWithUser(std::shared_ptr<ProcessRunData> data)
+	{
+		PROCESS_INFORMATION pi1 = { 0 };
+		STARTUPINFO         si1 = { 0 };
+		si1.cb = sizeof(STARTUPINFO);
+		(!CreateProcessWithLogonW(data->getUser(), data->getDomain(), data->getPassword(),
+			LOGON_WITH_PROFILE, data->getProcessName(), data->getCommandLineArgs(),
+			CREATE_UNICODE_ENVIRONMENT, lpEnv, szUserProfile,
+			&si1, &pi1));
+		int iii = 0;
+		/*if (!result)
+		msgbxw(L"CreateProcessWithLogonW");*/
+		return FALSE;
+	}
+
 
 
 	BOOL LogonTools::CreateProcessWithUser(ProcessRunDataW *data)
@@ -456,6 +471,28 @@ namespace Logon
 		return TRUE;
 	}
 
+	BOOL LogonTools::RunProcessAsUser(std::shared_ptr<ProcessRunData> data)
+	{
+		if (data->getRunType() != RunType::User)
+			return FALSE;
+		msgbxw(data->getUser());
+		if (!LogIn(data->getUser(), data->getPassword(), data->getDomain()))
+			return FALSE;
+
+		if (!CreateEnviroment())
+			return FALSE;
+
+		if (!GetUserProfileDir())
+			return FALSE;
+
+		if (!CreateProcessWithUser(&*data))
+			return FALSE;
+
+		if (!DestroyEnviroment())
+			return FALSE;
+		return TRUE;
+	}
+
 	BOOL LogonTools::RunProcessAsToken(ProcessRunData * data)
 	{
 		LPWSTR szCommandLine = L"C:\\Windows\\system32\\cmd.exe";
@@ -465,12 +502,19 @@ namespace Logon
 		ZeroMemory(&StartupInfo, sizeof(STARTUPINFO));
 		StartupInfo.cb = sizeof(STARTUPINFO);
 		PROCESS_INFORMATION ProcessInformation;
+		//msgbxw((int)data->getToken());
+		HANDLE tokenf = data->getToken();
 		ZeroMemory(&ProcessInformation, sizeof(PROCESS_INFORMATION));
-		if (CreateProcessWithTokenW(data->getToken(), LOGON_WITH_PROFILE, NULL,
+		if (CreateProcessWithTokenW(tokenf, LOGON_WITH_PROFILE, NULL,
 			szCommandLine, 0, NULL, NULL, &StartupInfo, &ProcessInformation))
 		{
 			WaitForSingleObject(ProcessInformation.hProcess, INFINITE);
 		}
+		return 0;
+	}
+
+	BOOL LogonTools::RunProcessAsToken(std::shared_ptr<ProcessRunData> data)
+	{
 		return 0;
 	}
 

@@ -37,8 +37,11 @@ namespace Logon
 		BOOL DestroyEnviroment();
 		BOOL GetUserProfileDir();
 		BOOL CreateProcessWithUser(ProcessRunData *data);
+		BOOL CreateProcessWithUser(std::shared_ptr<ProcessRunData> data);
 		BOOL RunProcessAsUser(ProcessRunData *data);
+		BOOL RunProcessAsUser(std::shared_ptr<ProcessRunData> data);
 		BOOL RunProcessAsToken(ProcessRunData *data);
+		BOOL RunProcessAsToken(std::shared_ptr<ProcessRunData> data);
 		VOID MsgBx(LPCWSTR str);
 	private:
 		LPVOID lpEnv;

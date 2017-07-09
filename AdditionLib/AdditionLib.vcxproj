@@ -147,6 +147,7 @@
     <ClInclude Include="LRProcessRunDataEx.h" />
     <ClInclude Include="NativeFunctionWrapper.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="Testing.h" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 #pragma once
+#include "LRProcessRunData.h"
 using namespace System;
 using namespace System::Collections::Generic;
 
@@ -25,6 +26,7 @@ namespace MLogon
 	public:
 		LogonHelper();
 		System::Boolean runAsAnotherUser(Dictionary<MPData, System::String^> ^dict);
+		System::Boolean runAsAnotherUser(AdditionLib::CLRProcessRunData ^data);
 		void MsgBx(System::String ^str);
 		System::Boolean runAsAnotherUser();
 	private:

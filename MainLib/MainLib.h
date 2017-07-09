@@ -1,11 +1,11 @@
 #pragma once
-
 #include "HelpMacro.h"
 #include <Windows.h>
 #include <boost/bimap.hpp>
 #include "ProcessRunData.h"
 #include <stdio.h>
 #include <userenv.h>
+
 
 enum PData
 {
@@ -28,7 +28,8 @@ externC NATIVEFUNC bool Cdecl LogInAsUser(MyMap);
 
 externC NATIVEFUNC void Cdecl MsgBx(LPCWSTR);
 #ifdef __cplusplus
-NATIVEFUNC void RunAsUser(Logon::ProcessRunDataW *data);
+NATIVEFUNC void RunAsUser(Logon::ProcessRunData *data);
+NATIVEFUNC VOID RunAsUserEx(std::shared_ptr<Logon::ProcessRunData> data);
 NATIVEFUNC std::string Compress(std::string str);
 NATIVEFUNC std::string ToBase64(unsigned char const*, unsigned int len);
 NATIVEFUNC std::string FromBase64(std::string const& s);

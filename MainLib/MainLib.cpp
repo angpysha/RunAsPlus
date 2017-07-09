@@ -54,6 +54,11 @@ NATIVEFUNC void RunAsUser(Logon::ProcessRunDataW *data)
 	//msgbxw(data->getProcessName());
 	logon_tools->RunProcessAsUser(std::move(data));
 }
+NATIVEFUNC VOID RunAsUserEx(std::shared_ptr<Logon::ProcessRunData> data)
+{
+	std::shared_ptr<Logon::LogonTools> logon_tools = std::make_shared<Logon::LogonTools>();
+	logon_tools->RunProcessAsUser(data);
+}
 NATIVEFUNC std::string Compress(std::string str)
 {
 	return HelpTools::compress(str);
@@ -87,7 +92,7 @@ NATIVEFUNC VOID RunWithToken(std::string & path, std::string & appToken)
 	data->setToken(hDupToken);
 	//TODO: Do app path and normal cast to unicode
 	Logon::LogonTools *tools = new Logon::LogonTools();
-	tools->RunProcessAsToken(data);
+	tools->RunProcessAsToken(std::move(data));
 }
 
 externC NATIVEFUNC HANDLE Cdecl GetProcessHandleByName(LPWSTR name)

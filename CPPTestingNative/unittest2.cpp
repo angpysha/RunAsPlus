@@ -31,5 +31,17 @@ namespace CPPTestingNative
 
 
 		}
+
+		TEST_METHOD(runAsUserSharedPtr)
+		{
+			std::shared_ptr<Logon::ProcessRunData> data = std::make_shared<Logon::ProcessRunData>();
+			data->setUser(L"user2");
+			data->setPassword(L"1111");
+			data->setDomain(L".");
+			data->setProcessName(L"cmd.exe");
+			//data->setCommandLineArgs(L"");
+			data->setRunType(RunType::User);
+			RunAsUserEx(data);
+		}
 	};
 }
